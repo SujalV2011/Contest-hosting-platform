@@ -1,0 +1,690 @@
+/* ===== Question Form Wrapper ===== */
+.qf-wrapper {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--glass-border);
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.5s var(--transition-bounce);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.qf-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  animation: progressBar 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes progressBar {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.qf-wrapper h3 {
+  margin: 0 0 2rem 0;
+  color: var(--text-primary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.qf-wrapper h3::before {
+  content: '📝';
+  font-size: 1.5rem;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+/* ===== Enhanced Form Labels ===== */
+.qf-label {
+  display: block;
+  font-weight: 600;
+  margin: 1.5rem 0 0.6rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  position: relative;
+  transition: color var(--transition-speed);
+}
+
+.qf-label.required::after {
+  content: '*';
+  color: var(--accent-2);
+  margin-left: 0.25rem;
+  font-weight: bold;
+}
+
+.qf-label.focused {
+  color: var(--primary-color);
+}
+
+/* ===== Enhanced Input Fields ===== */
+.qf-input,
+.qf-text,
+.qf-select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--bg-medium);
+  border-radius: var(--border-radius-md);
+  background: var(--bg-lightest);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: all var(--transition-speed) var(--transition-smooth);
+  position: relative;
+}
+
+.qf-input:focus,
+.qf-text:focus,
+.qf-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+  background: white;
+}
+
+.qf-input::placeholder,
+.qf-text::placeholder {
+  color: var(--text-muted);
+  transition: all var(--transition-speed);
+}
+
+.qf-input:focus::placeholder,
+.qf-text:focus::placeholder {
+  color: transparent;
+  transform: translateY(-20px);
+}
+
+.qf-text {
+  resize: vertical;
+  min-height: 100px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+}
+
+/* Number input styling */
+input[type="number"].qf-input {
+  -moz-appearance: textfield;
+}
+
+input[type="number"].qf-input::-webkit-outer-spin-button,
+input[type="number"].qf-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ===== Enhanced Form Grid ===== */
+.qf-form-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 2fr 1fr;
+  margin: 1.5rem 0;
+}
+
+.qf-form-grid .qf-label {
+  margin-top: 0;
+}
+
+/* ===== Difficulty & Category Selection ===== */
+.qf-select-row {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 1.5rem 0;
+}
+
+.qf-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  padding-right: 3rem;
+}
+
+.qf-select:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%237c3aed' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+}
+
+/* ===== Enhanced Test Cases Section ===== */
+.qf-cases {
+  border: 2px solid var(--bg-light);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-top: 2rem;
+  background: var(--bg-lightest);
+  transition: all var(--transition-speed) var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.qf-cases::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-secondary);
+  transform: scaleX(0);
+  transition: transform var(--transition-speed) var(--transition-smooth);
+}
+
+.qf-cases:hover {
+  border-color: var(--primary-color);
+  background: white;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
+}
+
+.qf-cases:hover::before {
+  transform: scaleX(1);
+}
+
+.qf-cases legend {
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  padding: 0 1rem;
+  background: var(--bg-lightest);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qf-cases legend::before {
+  content: '🧪';
+  font-size: 1rem;
+}
+
+.qf-cases.sample legend::before {
+  content: '👁️';
+}
+
+.qf-cases.hidden legend::before {
+  content: '🔒';
+}
+
+/* ===== Test Case Rows ===== */
+.qf-case-row {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: start;
+  padding: 1rem;
+  background: white;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--bg-medium);
+  transition: all var(--transition-speed) var(--transition-smooth);
+  animation: fadeInDown 0.3s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.qf-case-row:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+}
+
+.qf-case-textarea {
+  flex: 1;
+  resize: vertical;
+  padding: 0.75rem;
+  border: 2px solid var(--bg-medium);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  line-height: 1.5;
+  background: var(--bg-light);
+  color: var(--text-primary);
+  transition: all var(--transition-speed) var(--transition-smooth);
+  min-height: 80px;
+}
+
+.qf-case-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  background: white;
+}
+
+.qf-case-textarea::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Input/Output labels */
+.qf-case-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.qf-case-input .qf-case-label::before {
+  content: '📥 ';
+}
+
+.qf-case-output .qf-case-label::before {
+  content: '📤 ';
+}
+
+/* Remove button */
+.qf-case-remove {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background: var(--gradient-danger);
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-speed) var(--transition-bounce);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.qf-case-remove:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.qf-case-remove:active {
+  transform: scale(0.95);
+}
+
+/* Add case button */
+.qf-add-case {
+  margin-top: 1rem;
+  border: 2px dashed var(--bg-medium);
+  background: transparent;
+  border-radius: var(--border-radius-md);
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: all var(--transition-speed) var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.qf-add-case::before {
+  content: '➕';
+  font-size: 1rem;
+}
+
+.qf-add-case:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: rgba(124, 58, 237, 0.05);
+  transform: translateY(-2px);
+}
+
+.qf-add-case:active {
+  transform: translateY(0);
+}
+
+/* ===== Constraints & Hints Section ===== */
+.qf-advanced {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-light);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--bg-medium);
+}
+
+.qf-advanced-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: color var(--transition-speed);
+}
+
+.qf-advanced-toggle:hover {
+  color: var(--primary-color);
+}
+
+.qf-advanced-toggle::before {
+  content: '▶️';
+  transition: transform var(--transition-speed);
+  font-size: 0.8rem;
+}
+
+.qf-advanced-toggle.expanded::before {
+  transform: rotate(90deg);
+}
+
+.qf-advanced-content {
+  display: none;
+  animation: expandDown 0.3s ease-out;
+}
+
+.qf-advanced-content.show {
+  display: block;
+}
+
+@keyframes expandDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.qf-constraints-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 1rem;
+}
+
+/* ===== Tags Section ===== */
+.qf-tags {
+  margin: 1.5rem 0;
+}
+
+.qf-tag-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qf-tag-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid var(--bg-medium);
+  border-radius: var(--border-radius-sm);
+  background: var(--bg-lightest);
+  font-size: 0.9rem;
+}
+
+.qf-tag-add {
+  padding: 0.75rem 1rem;
+  background: var(--gradient-secondary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-speed);
+}
+
+.qf-tag-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.qf-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.qf-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all var(--transition-speed);
+}
+
+.qf-tag:hover {
+  transform: scale(1.05);
+}
+
+.qf-tag-remove {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  transition: transform var(--transition-speed);
+}
+
+.qf-tag-remove:hover {
+  transform: scale(1.2);
+}
+
+/* ===== Action Buttons ===== */
+.qf-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--bg-medium);
+}
+
+.qf-preview-btn {
+  background: var(--gradient-secondary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed) var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qf-preview-btn::before {
+  content: '👀';
+}
+
+.qf-preview-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* ===== Validation States ===== */
+.qf-field-error {
+  border-color: var(--accent-2) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.qf-error-message {
+  color: var(--accent-2);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.qf-error-message::before {
+  content: '⚠️';
+  font-size: 0.7rem;
+}
+
+.qf-field-success {
+  border-color: var(--success) !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+}
+
+.qf-success-message {
+  color: var(--success);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.qf-success-message::before {
+  content: '✅';
+  font-size: 0.7rem;
+}
+
+/* ===== Progress Indicator ===== */
+.qf-progress {
+  margin: 1rem 0;
+  height: 6px;
+  background: var(--bg-medium);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.qf-progress-bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.qf-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .qf-wrapper {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .qf-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .qf-select-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .qf-case-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .qf-case-remove {
+    width: 100%;
+    height: 36px;
+    margin-top: 0.5rem;
+  }
+  
+  .qf-constraints-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .qf-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+  
+  .qf-actions .cc-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .qf-tag-input-wrapper {
+    flex-direction: column;
+  }
+  
+  .qf-tag-add {
+    width: 100%;
+  }
+}
+
+/* ===== Dark Mode Adjustments ===== */
+[data-theme="dark"] .qf-case-textarea,
+[data-theme="dark"] .qf-input,
+[data-theme="dark"] .qf-text {
+  background: var(--bg-lightest);
+  border-color: var(--bg-dark);
+}
+
+[data-theme="dark"] .qf-case-row {
+  background: var(--bg-light);
+  border-color: var(--bg-dark);
+}
+
+[data-theme="dark"] .qf-advanced {
+  background: var(--bg-light);
+  border-color: var(--bg-dark);
+}

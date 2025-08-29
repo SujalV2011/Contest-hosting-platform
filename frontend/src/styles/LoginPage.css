@@ -1,0 +1,302 @@
+/* Container */
+.login-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT SIDE */
+.login-left {
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+}
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/login.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px) brightness(0.7);
+  z-index: 1;
+}
+
+.login-overlay {
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 3rem;
+}
+
+.testimonial h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.testimonial p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+}
+
+.testimonial-author {
+  font-size: 0.95rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* RIGHT SIDE */
+.login-right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 3rem;
+}
+
+.login-form-container {
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color:#374151
+}
+
+.login-header p {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Toggle (Purple Version) */
+
+.user-type-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  border-radius: 0;
+  gap: 0.10rem;
+  margin-bottom: 1.5rem;
+  box-shadow: none;
+}
+
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  border: none;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove any border between toggle buttons */
+.toggle-btn + .toggle-btn {
+  margin-left: 0;
+}
+
+.toggle-btn.active {
+  background-color: #8b5cf6;
+  color: white;
+  outline: none;
+  box-shadow: 0 2px 8px 0 rgba(139,92,246,0.08);
+  border: none;
+  border-radius: 0.75rem;
+  z-index: 2;
+}
+
+.toggle-btn:hover:not(.active) {
+  background-color: #ede9fe;
+  color: #4b5563;
+}
+
+/* FORM */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-form input[type="email"] {
+  padding-right: 2.5rem; /* match password input's right padding for visual consistency */
+}
+
+.form-group input:focus {
+  border-color: #8b5cf6;
+  background: white;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  color: #222; /* or any visible color */
+  background: #fff; /* optional: ensures contrast */
+}
+
+/* Ensure password input text is always visible */
+.login-form input[type="password"],
+.login-form input[type="text"] {
+  color: #222;
+  background: #fff;
+}
+
+
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 2.5rem; /* space for the eye button */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: #8b5cf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.password-toggle:hover {
+  color: #7c3aed;
+  background: transparent;
+}
+
+.password-toggle:focus {
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.password-toggle:active {
+  background: transparent;
+  color: #7c3aed;
+}
+
+/* Links and Buttons */
+.form-options {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.forgot-password {
+  font-size: 0.85rem;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  color: #2563eb;
+}
+
+.login-btn {
+  background: #8b5cf6;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+
+.signup-link {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.signup-link a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover {
+  color: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+    height: auto;
+  }
+
+  .login-overlay {
+    padding: 2rem;
+  }
+
+  .login-right {
+    padding: 2rem;
+  }
+}
